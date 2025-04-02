@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - name: cloudsql-proxy
+        image: gcr.io/cloudsql-docker/gce-proxy:latest
+        command:
+          - "/cloud_sql_proxy"
+          - "-instances=p-9016-group-18:us-east1:social-db=tcp:5432"
+          - "-credential_file=/secrets/cloudsql/credentials.json"
+        volumeMounts:
+          - name: cloudsql-instance-credentials
+            mountPath: /secrets/cloudsql
+            readOnly: true
+        ports:
+        - containerPort: 5432
+      - name: postgres-container
+        image: postgres:14
+        env:
+        - name: POSTGRES_USER
+          value: "dbadmin"
+        - name: POSTGRES_PASSWORD
+          value: "P@ssw00rd"
+        - name: POSTGRES_DB
+          value: "social_media"
+        - name: DB_HOST
+          value: "127.0.0.1"
+        ports:
+        - containerPort: 5432
+      volumes:
+      - name: cloudsql-instance-credentials
+        secret:
+          secretName: cloudsql-instance-credentials

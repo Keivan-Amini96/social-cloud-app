@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Social Media App - p-group-18</title>
+    <script src="app.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        #posts { margin: 20px 0; }
+        .post { padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; border-radius: 5px; }
+        button { background: #4285F4; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px; }
+        input { padding: 8px; width: 70%; margin-right: 5px; }
+        form { margin-bottom: 20px; }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage-compat.js"></script>
+</head>
+<body>
+    <h1>Social Media Demo (p-group-18)</h1>
+    <form id="post-form">
+        <input type="text" id="post-content" placeholder="Write a post..." required>
+        <button type="submit">Post</button>
+    </form>
+    <div id="posts"></div>
+    <div id="auth-section">
+        <div id="auth-status">Loading...</div>
+        <form id="auth-form">
+          <input type="email" id="email" placeholder="Email" required>
+          <input type="password" id="password" placeholder="Password" required>
+          <button type="button" onclick="login()">Login</button>
+          <div id="auth-error" style="color:red"></div>
+        </form>
+        <button onclick="logout()">Logout</button>
+      </div>
+      
+      <div id="upload-section" style="margin-top:20px">
+        <form id="upload-form">
+          <input type="file" id="image-upload" accept="image/*" required>
+          <button type="submit">Upload Image</button>
+        </form>
+        <div id="image-preview"></div>
+      </div>
+</body>
+</html>

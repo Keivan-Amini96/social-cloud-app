@@ -1,0 +1,7 @@
+spec:
+  template:
+    spec:
+      containers:
+      - name: nginx-container
+        command: ["/bin/sh", "-c"]
+        args: ["chmod -R 755 /usr/share/nginx/html && exec nginx -g 'daemon off;'"]

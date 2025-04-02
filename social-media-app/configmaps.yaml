@@ -1,0 +1,45 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  data:
+    ca.crt: |
+      -----BEGIN CERTIFICATE-----
+      MIIELDCCApSgAwIBAgIQQrf9B/wWME959Or1tBvvgjANBgkqhkiG9w0BAQsFADAv
+      MS0wKwYDVQQDEyRiMWY5NDk5Ny0yZTE1LTQxYWItODYzMi1hNDBjNTgyNmRkZDYw
+      IBcNMjUwMzI0MTIzOTIxWhgPMjA1NTAzMTcxMzM5MjFaMC8xLTArBgNVBAMTJGIx
+      Zjk0OTk3LTJlMTUtNDFhYi04NjMyLWE0MGM1ODI2ZGRkNjCCAaIwDQYJKoZIhvcN
+      AQEBBQADggGPADCCAYoCggGBAJ9dQrMsULJpIfjSiED/EYWrBnqQzvZOtUOHRgUe
+      OVywi1TTo0/D9xPiXOASVkl3aVx/JaeMWfZEURxV6mpf8xrGuB8sK0ay+5h/TD9i
+      fkOT3RjjbkCBoVAOYC/kf8Ge/4Z5c7cOucDTMeKu3T5wslQRGMPy7guTbjPOkVti
+      P25w/fmHvH6GQLVNvUzqQpqWsU8l4BTSNucvG3FJDVbukYDKoy8212tpUdErjCbY
+      B5NLlbKFwcY0D57m9l3shWt13pyB2DIUAasa0bqpfmx446qIzRfLdf+oQFNCfBfh
+      fSCjLO3Bk762nWsOdgi9hnrPFmAWpVplaZeRsBIjryb/3jjQaGM/p2ZY6w0vqszt
+      gg9cY86C96f+EnIrBSBe+HsFn3TmqQJTX71L9XBUUSG/CuxbeMWO6vmFEoNNHYS/
+      nN6+NXSlT6jYY1vyKaopcPtEjSar1LDySLT2dGLSZ8kYaeYq4aORZU6B4BET12xn
+      BxfO/g5bIcvsjgmHNTf9d6rogwIDAQABo0IwQDAOBgNVHQ8BAf8EBAMCAgQwDwYD
+      VR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUmwiv3IS16moUKYNCLNWp5WeJgqgwDQYJ
+      KoZIhvcNAQELBQADggGBAEWU1+4+fL1Xm2aMJ72QRJcMyJIsun9WnMS031SNdgAn
+      Ui0mqJ7AMJ8ske2xDERZwCdDsc+H9vg4jldA+WahTkGu3VxsM7eKZwmXvuKmTerT
+      W1JkCBtrVVFI99wWaClEJXOn120gNo4f4g7JuufSCPttmlQezTXbUT/SayA79w5g
+      Vfg7luL6G/9EZlZGfO/pjSd/KMH/FB25Rcp+aGDEeB57dHM264vLXQufTjvH/hEJ
+      eyyNdRSikJZHD3Y5pIC2s6Pqcku2eg3elp+KlWcZqQWTjcRdxgFO1TyR/lPbktXQ
+      qCwX9utPaVEfB1itNDCSTmZz+gSKvXqF4raOsIwGJkRjT1TDTVcswVJx1HEZcJFz
+      dnKtXYP9o5ANrnQwzjxysF2oHZpYWPmTs41cTdIwKMR5dS5CQBlq9bPaeKjoZlUx
+      EOPiPJ9DIKrzXjdNUfjo/I8lkMc2F79YMU3StgBKMs2MIvo5yT/o5rX/qGJq1Xfe
+      T6LKmGZ0pw9JJ2RxbQn3uA==
+      -----END CERTIFICATE-----
+  kind: ConfigMap
+  metadata:
+    annotations:
+      kubernetes.io/description: Contains a CA bundle that can be used to verify the
+        kube-apiserver when using internal endpoints such as the internal service
+        IP or kubernetes.default.svc. No other usage is guaranteed across distributions
+        of Kubernetes clusters.
+    creationTimestamp: "2025-03-24T13:42:29Z"
+    name: kube-root-ca.crt
+    namespace: default
+    resourceVersion: "247"
+    uid: 99f6af8a-3424-488f-9df5-445a0ec4af82
+kind: List
+metadata:
+  resourceVersion: ""

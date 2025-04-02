@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: us-east1-docker.pkg.dev/p-9016-group-18/nginx-app/backend:v1
+        env:
+        - name: DB_HOST
+          value: "db-service"
+        - name: DB_USER
+          value: "dbadmin"
+        - name: DB_PASSWORD
+          value: "P@ssw00rd"
+        ports:
+        - containerPort: 3000

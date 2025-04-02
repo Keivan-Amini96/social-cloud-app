@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx-container
+        image: us-east1-docker.pkg.dev/p-9016-group-18/nginx-app/webapp:v1
+        ports:
+        - containerPort: 80
+        env:
+        - name: TZ
+          value: "America/New_York"
